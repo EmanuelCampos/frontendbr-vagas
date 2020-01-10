@@ -33,11 +33,11 @@ export const Container = styled.div`
  border-radius: 4px;
  background: #FFF;
  padding: 30px;
- margin: 80px auto;
+ margin: 50px auto;
 
  display: flex;
  flex-direction: column;
-  align-items: center;
+align-items: center;
 
   img {
     width: 150px;
@@ -62,8 +62,8 @@ export const Loading = styled.div`
 
 
 export const List = styled.div`
-list-style: none;
-margin-top: 20px;
+  list-style: none;
+  margin-bottom: 15px;
 
 
 li {
@@ -124,6 +124,26 @@ div {
 
 }
 
+
+
+`;
+
+export const Pagination = styled.div`
+
+  display: inline-block;
+ a {
+   color: black;
+   float:left;
+   padding: 8px 16px;
+   text-decoration: none;
+   font-family: 'Roboto', sans-serif;
+  
+  &:active {
+    background-color: #4465A3;
+    color: white;
+  }
+
+}
 
 
 `;

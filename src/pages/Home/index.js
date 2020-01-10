@@ -1,69 +1,79 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from '../../services/api'
 import logo from '../../images/logo.png'
 
-import { List, Container, Loading } from './styles';
+import { List, Container, Loading, Pagination } from './styles';
 
-export default class Home extends Component {
+export default function Home() {
 
-  state = {
-    loading: true,
-    issues: [],
-  }
+  const [issues, setIssues] = useState([])
+  const [loading, setLoading] = useState(true)
 
+  useEffect(() => {
 
-  async componentDidMount() {
+    async function loadApi() {
 
-    const response = await api.get(`/repos/frontendbr/vagas/issues`, {
-      params: {
-        per_page: 5,
-      }
-    })
+      const response = await api.get(`/repos/frontendbr/vagas/issues`, {
+        params: {
+          per_page: 5,
+        }
+      })
 
-    this.setState({ issues: response.data, loading: false })
+      console.log(response.data)
 
+      setIssues(response.data)
+      setLoading(false)
 
-  }
-
-
-
-  render() {
-    const { issues, loading } = this.state
-
-    if (loading) {
-      return <Loading></Loading>
     }
 
+    loadApi()
+  }, []);
 
-    return (
-      <>
-        <Container>
-          <img src={logo} alt="frontendbr-vagas" />
-          <p>Vagas para desenvolvedores front-end de todo o Brasil !</p>
-
-
-          <List>
-            {issues.map(issue => (
-              <li key={String(issue.id)}>
-                <img src={issue.user.avatar_url} alt={issue.user.login} />
-                <div>
-                  <strong>
-                    <a href={issue.html_url}>{issue.title}</a>
-                    {issue.labels.map(label => (
-                      <span key={String(label.id)}>{label.name}</span>
-                    ))}
-                    <p>{issue.user.login}</p>
-                  </strong>
-                </div>
-
-
-              </li>
-            ))}
-          </List>
-        </Container>
-      </>
-
-    );
-
+  if (loading) {
+    return <Loading>Carregando</Loading>
   }
+
+  return (
+    <>
+      <Container>
+        <img src={logo} alt="frontendbr-vagas" />
+        <p>Vagas para desenvolvedores front-end de todo o Brasil !</p>
+
+
+        <List>
+          {issues.map(issue => (
+            <li key={String(issue.id)}>
+              <img src={issue.user.avatar_url} alt={issue.user.login} />
+              <div>
+                <strong>
+                  <a href={issue.html_url}>{issue.title}</a>
+                  {issue.labels.map(label => (
+                    <span key={String(label.id)}>{label.name}</span>
+                  ))}
+                  <p>{issue.user.login}</p>
+
+                </strong>
+              </div>
+
+
+            </li>
+          ))}
+        </List>
+        <Pagination>
+          <a href="#">&laquo;</a>
+          <a href="#">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">6</a>
+          <a href="#">&raquo;</a>
+        </Pagination>
+      </Container>
+
+    </>
+
+  );
+
 }
+
