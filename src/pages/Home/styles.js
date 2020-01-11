@@ -29,7 +29,7 @@ body, input, button {
 `;
 
 export const Container = styled.div`
- max-width: 700px;
+ max-width: 900px;
  border-radius: 4px;
  background: #FFF;
  padding: 30px;
@@ -110,22 +110,22 @@ div {
     font-family: 'Roboto', sans-serif;
   }
 
-  span {
-    font-family: 'Roboto', sans-serif;
-    background: #eee;
-    color: #333;
-    border-radius: 2px;
-    font-size: 12px;
-    font-weight: 600;
-    height: 20px;
-    padding: 3px 4px;
-    margin-left: 10px;
-  }
-
 }
 
 
 
+`;
+
+export const Span = styled.span`
+  background: ${props => props.background};
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  height: 20px;
+  padding: 3px 4px;
+  margin-left: 10px;
 `;
 
 export const Pagination = styled.div`
