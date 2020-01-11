@@ -1,11 +1,10 @@
-## Available Scripts
+## Como Funciona ?
 
-In the project directory, you can run:
+O Site desenvolvido em ReactJS, utilizando a api do github, faz uma requisição
+a api, e retorna no site, mostrando os resultados.
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Tecnologias utilizadas:
+  React
+  React-router-Dom
+  Axios
+  Styled-components
