@@ -29,7 +29,7 @@ body, input, button {
 `;
 
 export const Container = styled.div`
- max-width: 900px;
+ max-width: 700px;
  border-radius: 4px;
  background: #FFF;
  padding: 30px;

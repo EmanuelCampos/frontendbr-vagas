@@ -35,11 +35,6 @@ export default function Home() {
   }, [loadApi, pagina]);
 
 
-
-
-  function nextPage() {
-  }
-
   if (loading) {
     return <Loading>Carregando</Loading>
   }
@@ -71,14 +66,14 @@ export default function Home() {
           ))}
         </List>
         <Pagination>
-          <a href="#">&laquo;</a>
-          <a href="#">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">6</a>
-          <a href="#">&raquo;</a>
+          <a onClick={() => { setPagina(pagina - 1) }}>&laquo;</a>
+          <a onClick={() => { setPagina(1) }}>1</a>
+          <a onClick={() => { setPagina(2) }}>2</a>
+          <a onClick={() => { setPagina(3) }}>3</a>
+          <a onClick={() => { setPagina(4) }}>4</a>
+          <a onClick={() => { setPagina(5) }}>5</a>
+          <a onClick={() => { setPagina(6) }}>6</a>
+          <a onClick={() => { setPagina(pagina + 1) }}>&raquo;</a>
         </Pagination>
       </Container>
 
